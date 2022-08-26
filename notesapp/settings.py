@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from django.core.management import utils
 
 dotenv_path = join(dirname(__file__), '../.env')
 load_dotenv(dotenv_path)
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('ENV_SECRET_KEY')
+SECRET_KEY = utils.get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
