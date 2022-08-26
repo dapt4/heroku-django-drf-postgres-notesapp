@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'notesapp.wsgi.application'
 
 import dj_database_url
 DATABASES = {
-    'default': jd_database_url.config(
+    'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
     )
 }
